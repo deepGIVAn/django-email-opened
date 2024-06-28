@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preload" href="http://127.0.0.1:8000/email/opened/{{ email_id }}/" as="image">
+</head>
+<body>
+    {{ email_id }}
+    <img id="tracking-pixel" src="https://127.0.0.1:8000/email/opened/{{ email_id }}/" width="100" height="100">
+    <script>
+        document.getElementById('tracking-pixel').onload = function() {
+            console.log('Tracking pixel loaded');
+        };
+        document.getElementById('tracking-pixel').onerror = function() {
+            console.log('Error loading tracking pixel');
+        };
+    </script>
+    Email content here...
+</body>
+</html>
